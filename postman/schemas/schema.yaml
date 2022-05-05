@@ -1,0 +1,372 @@
+openapi: 3.0.0
+info:
+  title: Maintenance On-Demand
+  description: "API for creating and managing maintenance requests."
+  version: 1.0.0
+  contact: {}
+servers:
+  - url: "https://65957bc0-0ca4-40f0-b79e-9848c0fbdd44.mock.pstmn.io"
+paths:
+  /create:
+    post:
+      tags:
+        - Create
+      summary: New maintenance request
+      description: Creates a new maintenance request in the system. The maintenance request will be assigned an ID automatically. This can be found in the response.
+      operationId: newMaintenanceRequest
+      requestBody:
+        content:
+          application/form-urlencoded:
+            schema:
+              type: object
+              properties:
+                firstName:
+                  type: string
+                  example: "{{$randomFirstName}}"
+                lastName:
+                  type: string
+                  example: "{{$randomLastName}}"
+                serviceType:
+                  type: string
+                  example: Oil Change
+            example:
+              firstName: "{{$randomFirstName}}"
+              lastName: "{{$randomLastName}}"
+              serviceType: Oil Change
+      responses:
+        "200":
+          description: New maintenance request
+          headers:
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Content-Length:
+              schema:
+                type: string
+                example: "101"
+            Date:
+              schema:
+                type: string
+                example: "Thu, 10 Jan 2019 23:58:59 GMT"
+            ETag:
+              schema:
+                type: string
+                example: "W/\"65-KsPJ95rCxmmvvRBY2Sqroxk2vmA\""
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  firstName:
+                    type: string
+                    example: Ben
+                  id:
+                    type: string
+                    example: 0729d37c-ef9f-4ffa-8f71-a6eedf1f95b7
+                  lastName:
+                    type: string
+                    example: Smith
+                  status:
+                    type: string
+                    example: success
+                  service:
+                      type: string
+                      example: Oil Change
+              examples:
+                New maintenance request:
+                  value:
+                    firstName: Ben
+                    id: 0729d37c-ef9f-4ffa-8f71-a6eedf1f95b7
+                    lastName: Smith
+                    status: success
+                    service: Oil Change
+  /delete:
+    delete:
+      tags:
+        - Delete
+      summary: Delete maintenance request
+      description: "Deletes a maintenance request from the system by `id`."
+      operationId: deleteMaintenanceRequest
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: string
+            example: "{{id}}"
+          description: "The maintenance request's ID"
+      requestBody:
+        content:
+          text/plain:
+            example: ""
+      responses:
+        "200":
+          description: Delete maintenance request
+          headers:
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Content-Length:
+              schema:
+                type: string
+                example: "64"
+            Date:
+              schema:
+                type: string
+                example: "Fri, 11 Jan 2019 00:20:55 GMT"
+            ETag:
+              schema:
+                type: string
+                example: "W/\"40-bT/ASzl0KO3wj/eo2xEBaHPLnvk\""
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  id:
+                    type: string
+                    example: 0729d37c-ef9f-4ffa-8f71-a6eedf1f95b7
+                  status:
+                    type: string
+                    example: success
+              examples:
+                Delete maintenance request:
+                  value:
+                    id: 0729d37c-ef9f-4ffa-8f71-a6eedf1f95b7
+                    status: success
+  /get:
+    get:
+      tags:
+        - Read
+      summary: Get all maintenance requests
+      description: Get all maintenance requests in the system.
+      operationId: getAllMaintenanceRequests
+      parameters:
+        - name: all
+          in: query
+          schema:
+            type: string
+            example: "true"
+      responses:
+        "200":
+          description: 200 OK
+          headers:
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Content-Length:
+              schema:
+                type: string
+                example: "105"
+            Date:
+              schema:
+                type: string
+                example: "Fri, 11 Jan 2019 00:00:53 GMT"
+            ETag:
+              schema:
+                type: string
+                example: "W/\"69-ti7ujd/Cyb8EeoWoqRXh482Zy5o\""
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    firstName:
+                      type: string
+                      example: Ben
+                    id:
+                      type: string
+                      example: 0729d37c-ef9f-4ffa-8f71-a6eedf1f95b7
+                    lastName:
+                      type: string
+                      example: Smith
+                    service:
+                      type: string
+                      example: Oil Change
+                    status:
+                      type: string
+                      example: success
+                example:
+                  - status: success
+                  - firstName: Ben
+                    id: 0729d37c-ef9f-4ffa-8f71-a6eedf1f95b7
+                    lastName: Smith
+              examples:
+                200 OK:
+                  value:
+                    - status: success
+                    - firstName: Ben
+                      id: 0729d37c-ef9f-4ffa-8f71-a6eedf1f95b7
+                      lastName: Smith
+                      service: Oil Change
+  /get/:
+    get:
+      tags:
+        - Read
+      summary: Get maintenance requests by last name
+      description: "Retrieves all maintenance requests with the given `firstName`."
+      operationId: getMaintenanceRequestsByLastName
+      parameters:
+        - name: firstName
+          in: query
+          schema:
+            type: string
+            example: "{{$randomLastName}}"
+          description: "The maintenance requester's first name (required)"
+      responses:
+        "200":
+          description: "200"
+          headers:
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Content-Length:
+              schema:
+                type: string
+                example: "105"
+            Date:
+              schema:
+                type: string
+                example: "Fri, 11 Jan 2019 00:05:34 GMT"
+            ETag:
+              schema:
+                type: string
+                example: "W/\"69-F/ktIhtM5We/sndYYNUK1vmdEnQ\""
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  type: object
+                  properties:
+                    firstName:
+                      type: string
+                      example: "{{$randomFirstName}}"
+                    id:
+                      type: string
+                      example: 0729d37c-ef9f-4ffa-8f71-a6eedf1f95b7
+                    lastName:
+                      type: string
+                      example: "{{$randomLastName}}"
+                    status:
+                      type: string
+                      example: success
+                example:
+                  - status: success
+                  - firstName: "{{$randomFirstName}}"
+                    id: 0729d37c-ef9f-4ffa-8f71-a6eedf1f95b7
+                    lastName: "{{$randomLastName}}"
+              examples:
+                "200":
+                  value:
+                    - status: success
+                    - firstName: "{{$randomFirstName}}"
+                      id: 0729d37c-ef9f-4ffa-8f71-a6eedf1f95b7
+                      lastName: "{{$randomLastName}}"
+  /update:
+    put:
+      tags:
+        - Update
+      summary: Update maintenance request
+      description: "Send the keys that you'd like to update, this can be one or more of `firstName`, `lastName` and `password`."
+      operationId: updateMaintenanceRequest
+      parameters:
+        - name: id
+          in: query
+          schema:
+            type: string
+            example: "{{id}}"
+          description: "The maintenance request's ID (required)"
+      requestBody:
+        content:
+          application/form-urlencoded:
+            schema:
+              type: object
+              properties:
+                firstName:
+                  type: string
+                  example: Benjamin
+                carType:
+                  type: string
+                  example: Toyota Camry
+            example:
+              firstName: Benjamin
+              carType: Toyota Camry
+      responses:
+        "200":
+          description: Update maintenance request
+          headers:
+            Connection:
+              schema:
+                type: string
+                example: keep-alive
+            Content-Length:
+              schema:
+                type: string
+                example: "106"
+            Date:
+              schema:
+                type: string
+                example: "Fri, 11 Jan 2019 00:18:07 GMT"
+            ETag:
+              schema:
+                type: string
+                example: "W/\"6a-SA9mzR+M2pmN7WPGgLm1ZqtRYis\""
+            X-Powered-By:
+              schema:
+                type: string
+                example: Express
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  firstName:
+                    type: string
+                    example: Benjamin
+                  id:
+                    type: string
+                    example: 0729d37c-ef9f-4ffa-8f71-a6eedf1f95b7
+                  lastName:
+                    type: string
+                    example: Smith
+                  service:
+                    type: string
+                    example: Oil Change
+                  status:
+                    type: string
+                    example: success
+              examples:
+                Update maintenance request:
+                  value:
+                    firstName: Benjamin
+                    id: 0729d37c-ef9f-4ffa-8f71-a6eedf1f95b7
+                    lastName: Smith
+                    service: Oil Change
+                    status: success
+tags:
+  - name: Create
+  - name: Read
+  - name: Update
+  - name: Delete
