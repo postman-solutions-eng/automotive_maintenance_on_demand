@@ -67,7 +67,6 @@
 							"status": "OK",
 							"code": 200,
 							"_postman_previewlanguage": "json",
-							"_postman_previewtype": "html",
 							"header": [
 								{
 									"disabled": false,
@@ -105,7 +104,6 @@
 								}
 							],
 							"cookie": [],
-							"responseTime": null,
 							"body": "{\n  \"firstName\": \"Ben\",\n  \"id\": \"0729d37c-ef9f-4ffa-8f71-a6eedf1f95b7\",\n  \"lastName\": \"Smith\",\n  \"status\": \"success\",\n  \"service\": \"Oil Change\"\n}"
 						}
 					]
@@ -118,7 +116,33 @@
 			"item": [
 				{
 					"name": "Get all maintenance requests",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6d2d0af6-d4ba-43dd-8360-01812294bdff",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Check if firstName and lastName exist\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"firstName\");",
+									"    pm.expect(pm.response.text()).to.include(\"lastName\");",
+									"});",
+									"",
+									"pm.test(\"Status code name has 'OK'\", function () {",
+									"    pm.response.to.have.status(\"OK\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"id": "74d650ba-6ecd-4c06-ba97-c00b4a59a7d8",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
 						"header": [
@@ -170,7 +194,6 @@
 							"status": "OK",
 							"code": 200,
 							"_postman_previewlanguage": "json",
-							"_postman_previewtype": "html",
 							"header": [
 								{
 									"disabled": false,
@@ -208,14 +231,39 @@
 								}
 							],
 							"cookie": [],
-							"responseTime": null,
 							"body": "[\n  {\n    \"status\": \"success\"\n  },\n  {\n    \"firstName\": \"Ben\",\n    \"id\": \"0729d37c-ef9f-4ffa-8f71-a6eedf1f95b7\",\n    \"lastName\": \"Smith\",\n    \"service\": \"Oil Change\"\n  }\n]"
 						}
 					]
 				},
 				{
 					"name": "Get maintenance requests by last name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2243411b-cb7a-42f9-a0f9-724fa76fcc40",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Check if firstName and lastName exist\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"firstName\");",
+									"    pm.expect(pm.response.text()).to.include(\"lastName\");",
+									"});",
+									"",
+									"pm.test(\"Status code name has 'OK'\", function () {",
+									"    pm.response.to.have.status(\"OK\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"id": "d78e9308-6aae-4625-9aae-51f299edcce8",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
 						"header": [
@@ -270,7 +318,6 @@
 							"status": "OK",
 							"code": 200,
 							"_postman_previewlanguage": "json",
-							"_postman_previewtype": "html",
 							"header": [
 								{
 									"disabled": false,
@@ -308,7 +355,6 @@
 								}
 							],
 							"cookie": [],
-							"responseTime": null,
 							"body": "[\n  {\n    \"status\": \"success\"\n  },\n  {\n    \"firstName\": \"{{$randomFirstName}}\",\n    \"id\": \"0729d37c-ef9f-4ffa-8f71-a6eedf1f95b7\",\n    \"lastName\": \"{{$randomLastName}}\"\n  }\n]"
 						}
 					]
@@ -321,6 +367,29 @@
 			"item": [
 				{
 					"name": "Update maintenance request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "37218f7a-282f-4685-bb1e-ab475280a8b2",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Check if firstName and lastName exist\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"firstName\");",
+									"    pm.expect(pm.response.text()).to.include(\"lastName\");",
+									"});",
+									"",
+									"pm.test(\"Status code name has 'OK'\", function () {",
+									"    pm.response.to.have.status(\"OK\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"id": "ac19452b-37c6-489b-8ba6-642014a957ab",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -389,7 +458,6 @@
 							"status": "OK",
 							"code": 200,
 							"_postman_previewlanguage": "json",
-							"_postman_previewtype": "html",
 							"header": [
 								{
 									"disabled": false,
@@ -427,7 +495,6 @@
 								}
 							],
 							"cookie": [],
-							"responseTime": null,
 							"body": "{\n  \"firstName\": \"Benjamin\",\n  \"id\": \"0729d37c-ef9f-4ffa-8f71-a6eedf1f95b7\",\n  \"lastName\": \"Smith\",\n  \"service\": \"Oil Change\",\n  \"status\": \"success\"\n}"
 						}
 					]
@@ -440,6 +507,29 @@
 			"item": [
 				{
 					"name": "Delete maintenance request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "374e555e-eb03-4bcd-8bab-e6959e304607",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Check if id and status exist\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"id\");",
+									"    pm.expect(pm.response.text()).to.include(\"status\");",
+									"});",
+									"",
+									"pm.test(\"Status code name has 'OK'\", function () {",
+									"    pm.response.to.have.status(\"OK\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"id": "92484333-43ec-4c77-be41-979266fef02a",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -508,7 +598,6 @@
 							"status": "OK",
 							"code": 200,
 							"_postman_previewlanguage": "json",
-							"_postman_previewtype": "html",
 							"header": [
 								{
 									"disabled": false,
@@ -546,7 +635,6 @@
 								}
 							],
 							"cookie": [],
-							"responseTime": null,
 							"body": "{\n  \"id\": \"0729d37c-ef9f-4ffa-8f71-a6eedf1f95b7\",\n  \"status\": \"success\"\n}"
 						}
 					]
@@ -559,7 +647,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "49206125-b3db-4186-9b6d-9f058a8a54bc",
+				"id": "e1480705-87b0-4068-a013-e5c06cc18de3",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -569,19 +657,17 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "1be6d33e-1e74-4aee-b0ae-1c77872c0d3f",
+				"id": "85f28f8b-c3d5-4510-9fce-21337d1a5476",
 				"type": "text/javascript",
 				"exec": [
-					"pm.test(\"Status code is 200\", function () {",
-					"    pm.response.to.have.status(200);",
-					"});"
+					""
 				]
 			}
 		}
 	],
 	"variable": [
 		{
-			"id": "82745520-398d-44bf-97d6-431c8f0bfa83",
+			"id": "c8e5712c-cd9d-4d50-a02a-fe6b4bb8ef00",
 			"key": "baseUrl",
 			"value": "https://65957bc0-0ca4-40f0-b79e-9848c0fbdd44.mock.pstmn.io",
 			"type": "string"
