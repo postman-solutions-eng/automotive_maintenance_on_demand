@@ -6,8 +6,6 @@ info:
   contact: {}
 servers:
   - url: "https://65957bc0-0ca4-40f0-b79e-9848c0fbdd44.mock.pstmn.io"
-security:
-  - apiKey: []
 paths:
   /create:
     post:
@@ -363,6 +361,14 @@ paths:
                     lastName: Smith
                     service: Oil Change
                     status: success
+components:
+  securitySchemes:
+    ApiKey:
+      name: apikey
+      in: header
+      type: apiKey
+security:
+  - ApiKey: []
 tags:
   - name: Create
   - name: Read
