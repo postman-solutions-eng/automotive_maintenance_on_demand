@@ -216,7 +216,7 @@ paths:
       tags:
         - Read
       summary: Get maintenance requests by last name
-      description: "Retrieves all maintenance requests with the given `firstName`."
+      description: Retrieves all maintenance requests with the given `firstName`.
       operationId: getMaintenanceRequestsByLastName
       parameters:
         - name: firstName
@@ -361,14 +361,9 @@ paths:
                     lastName: Smith
                     service: Oil Change
                     status: success
-components:
-  securitySchemes:
-    ApiKey:
-      name: apikey
-      in: header
-      type: apiKey
 security:
   - ApiKey: []
+  - BasicAuth: []
 tags:
   - name: Create
   - name: Read
