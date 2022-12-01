@@ -67,7 +67,6 @@
 							"status": "OK",
 							"code": 200,
 							"_postman_previewlanguage": "json",
-							"_postman_previewtype": "html",
 							"header": [
 								{
 									"disabled": false,
@@ -105,7 +104,6 @@
 								}
 							],
 							"cookie": [],
-							"responseTime": null,
 							"body": "{\n  \"firstName\": \"Ben\",\n  \"id\": \"0729d37c-ef9f-4ffa-8f71-a6eedf1f95b7\",\n  \"lastName\": \"Smith\",\n  \"status\": \"success\",\n  \"service\": \"Oil Change\"\n}"
 						}
 					]
@@ -119,6 +117,9 @@
 				{
 					"name": "Get all maintenance requests",
 					"id": "74d650ba-6ecd-4c06-ba97-c00b4a59a7d8",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
 						"header": [
@@ -170,7 +171,6 @@
 							"status": "OK",
 							"code": 200,
 							"_postman_previewlanguage": "json",
-							"_postman_previewtype": "html",
 							"header": [
 								{
 									"disabled": false,
@@ -208,7 +208,6 @@
 								}
 							],
 							"cookie": [],
-							"responseTime": null,
 							"body": "[\n  {\n    \"status\": \"success\"\n  },\n  {\n    \"firstName\": \"Ben\",\n    \"id\": \"0729d37c-ef9f-4ffa-8f71-a6eedf1f95b7\",\n    \"lastName\": \"Smith\",\n    \"service\": \"Oil Change\"\n  }\n]"
 						}
 					]
@@ -216,6 +215,9 @@
 				{
 					"name": "Get maintenance requests by last name",
 					"id": "d78e9308-6aae-4625-9aae-51f299edcce8",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
 					"request": {
 						"method": "GET",
 						"header": [
@@ -270,7 +272,6 @@
 							"status": "OK",
 							"code": 200,
 							"_postman_previewlanguage": "json",
-							"_postman_previewtype": "html",
 							"header": [
 								{
 									"disabled": false,
@@ -308,7 +309,6 @@
 								}
 							],
 							"cookie": [],
-							"responseTime": null,
 							"body": "[\n  {\n    \"status\": \"success\"\n  },\n  {\n    \"firstName\": \"{{$randomFirstName}}\",\n    \"id\": \"0729d37c-ef9f-4ffa-8f71-a6eedf1f95b7\",\n    \"lastName\": \"{{$randomLastName}}\"\n  }\n]"
 						}
 					]
@@ -389,7 +389,6 @@
 							"status": "OK",
 							"code": 200,
 							"_postman_previewlanguage": "json",
-							"_postman_previewtype": "html",
 							"header": [
 								{
 									"disabled": false,
@@ -427,7 +426,6 @@
 								}
 							],
 							"cookie": [],
-							"responseTime": null,
 							"body": "{\n  \"firstName\": \"Benjamin\",\n  \"id\": \"0729d37c-ef9f-4ffa-8f71-a6eedf1f95b7\",\n  \"lastName\": \"Smith\",\n  \"service\": \"Oil Change\",\n  \"status\": \"success\"\n}"
 						}
 					]
@@ -508,7 +506,6 @@
 							"status": "OK",
 							"code": 200,
 							"_postman_previewlanguage": "json",
-							"_postman_previewtype": "html",
 							"header": [
 								{
 									"disabled": false,
@@ -546,7 +543,6 @@
 								}
 							],
 							"cookie": [],
-							"responseTime": null,
 							"body": "{\n  \"id\": \"0729d37c-ef9f-4ffa-8f71-a6eedf1f95b7\",\n  \"status\": \"success\"\n}"
 						}
 					]
@@ -559,7 +555,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "49206125-b3db-4186-9b6d-9f058a8a54bc",
+				"id": "8e02a434-992e-444b-bb4f-ae70eb1ff913",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -569,11 +565,15 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "1be6d33e-1e74-4aee-b0ae-1c77872c0d3f",
+				"id": "d118d134-054b-4b24-a537-aae90f8cc1a9",
 				"type": "text/javascript",
 				"exec": [
 					"pm.test(\"Status code is 200\", function () {",
 					"    pm.response.to.have.status(200);",
+					"});",
+					"",
+					"pm.test(\"Status code name has string\", function () {",
+					"    pm.response.to.have.status(\"OK\");",
 					"});"
 				]
 			}
@@ -581,7 +581,7 @@
 	],
 	"variable": [
 		{
-			"id": "82745520-398d-44bf-97d6-431c8f0bfa83",
+			"id": "767d0f52-772f-43ed-b7b0-d04793e4b52d",
 			"key": "baseUrl",
 			"value": "https://65957bc0-0ca4-40f0-b79e-9848c0fbdd44.mock.pstmn.io",
 			"type": "string"
