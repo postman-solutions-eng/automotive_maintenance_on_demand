@@ -99,10 +99,6 @@ paths:
             type: string
             example: "{{id}}"
           description: "The maintenance request's ID"
-      requestBody:
-        content:
-          text/plain:
-            example: ""
       responses:
         "200":
           description: Delete maintenance request
@@ -143,7 +139,7 @@ paths:
                   value:
                     id: 0729d37c-ef9f-4ffa-8f71-a6eedf1f95b7
                     status: success
-  /get:
+  /all:
     get:
       tags:
         - Read
@@ -215,7 +211,7 @@ paths:
                       id: 0729d37c-ef9f-4ffa-8f71-a6eedf1f95b7
                       lastName: Smith
                       service: Oil Change
-  /get/:
+  /get:
     get:
       tags:
         - Read
@@ -365,6 +361,14 @@ paths:
                     lastName: Smith
                     service: Oil Change
                     status: success
+components:
+  securitySchemes:
+    ApiKey:
+      name: apikey
+      in: header
+      type: apiKey
+security:
+  - ApiKey: []
 tags:
   - name: Create
   - name: Read
