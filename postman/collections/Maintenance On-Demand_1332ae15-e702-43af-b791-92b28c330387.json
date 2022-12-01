@@ -12,6 +12,29 @@
 			"item": [
 				{
 					"name": "New maintenance request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "1cae9024-9cd7-454a-b72e-fc576909f0a9",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Check if firstName and lastName exist\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"firstName\");",
+									"    pm.expect(pm.response.text()).to.include(\"lastName\");",
+									"});",
+									"",
+									"pm.test(\"Status code name has 'OK'\", function () {",
+									"    pm.response.to.have.status(\"OK\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"id": "daf6df83-02ed-4a84-9142-9f8aa0179521",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
