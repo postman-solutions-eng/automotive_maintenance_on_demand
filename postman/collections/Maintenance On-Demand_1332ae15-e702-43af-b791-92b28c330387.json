@@ -116,6 +116,29 @@
 			"item": [
 				{
 					"name": "Get all maintenance requests",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "6d2d0af6-d4ba-43dd-8360-01812294bdff",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Check if firstName and lastName exist\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"firstName\");",
+									"    pm.expect(pm.response.text()).to.include(\"lastName\");",
+									"});",
+									"",
+									"pm.test(\"Status code name has 'OK'\", function () {",
+									"    pm.response.to.have.status(\"OK\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"id": "74d650ba-6ecd-4c06-ba97-c00b4a59a7d8",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -214,6 +237,29 @@
 				},
 				{
 					"name": "Get maintenance requests by last name",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "2243411b-cb7a-42f9-a0f9-724fa76fcc40",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Check if firstName and lastName exist\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"firstName\");",
+									"    pm.expect(pm.response.text()).to.include(\"lastName\");",
+									"});",
+									"",
+									"pm.test(\"Status code name has 'OK'\", function () {",
+									"    pm.response.to.have.status(\"OK\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"id": "d78e9308-6aae-4625-9aae-51f299edcce8",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -321,6 +367,29 @@
 			"item": [
 				{
 					"name": "Update maintenance request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "37218f7a-282f-4685-bb1e-ab475280a8b2",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Check if firstName and lastName exist\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"firstName\");",
+									"    pm.expect(pm.response.text()).to.include(\"lastName\");",
+									"});",
+									"",
+									"pm.test(\"Status code name has 'OK'\", function () {",
+									"    pm.response.to.have.status(\"OK\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"id": "ac19452b-37c6-489b-8ba6-642014a957ab",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -438,6 +507,29 @@
 			"item": [
 				{
 					"name": "Delete maintenance request",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "374e555e-eb03-4bcd-8bab-e6959e304607",
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {",
+									"    pm.response.to.have.status(200);",
+									"});",
+									"",
+									"pm.test(\"Check if id and status exist\", function () {",
+									"    pm.expect(pm.response.text()).to.include(\"id\");",
+									"    pm.expect(pm.response.text()).to.include(\"status\");",
+									"});",
+									"",
+									"pm.test(\"Status code name has 'OK'\", function () {",
+									"    pm.response.to.have.status(\"OK\");",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
 					"id": "92484333-43ec-4c77-be41-979266fef02a",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -555,7 +647,7 @@
 		{
 			"listen": "prerequest",
 			"script": {
-				"id": "8e02a434-992e-444b-bb4f-ae70eb1ff913",
+				"id": "e1480705-87b0-4068-a013-e5c06cc18de3",
 				"type": "text/javascript",
 				"exec": [
 					""
@@ -565,23 +657,17 @@
 		{
 			"listen": "test",
 			"script": {
-				"id": "d118d134-054b-4b24-a537-aae90f8cc1a9",
+				"id": "85f28f8b-c3d5-4510-9fce-21337d1a5476",
 				"type": "text/javascript",
 				"exec": [
-					"pm.test(\"Status code is 200\", function () {",
-					"    pm.response.to.have.status(200);",
-					"});",
-					"",
-					"pm.test(\"Status code name has string\", function () {",
-					"    pm.response.to.have.status(\"OK\");",
-					"});"
+					""
 				]
 			}
 		}
 	],
 	"variable": [
 		{
-			"id": "767d0f52-772f-43ed-b7b0-d04793e4b52d",
+			"id": "c8e5712c-cd9d-4d50-a02a-fe6b4bb8ef00",
 			"key": "baseUrl",
 			"value": "https://65957bc0-0ca4-40f0-b79e-9848c0fbdd44.mock.pstmn.io",
 			"type": "string"
