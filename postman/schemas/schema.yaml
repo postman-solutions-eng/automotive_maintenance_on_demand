@@ -34,7 +34,7 @@ paths:
               lastName: "{{$randomLastName}}"
               serviceType: Oil Change
       responses:
-        "200":
+        200:
           description: New maintenance request
           headers:
             Connection:
@@ -85,6 +85,13 @@ paths:
                     lastName: Smith
                     status: success
                     service: Oil Change
+        500:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
+
   /delete:
     delete:
       tags:
@@ -139,6 +146,12 @@ paths:
                   value:
                     id: 0729d37c-ef9f-4ffa-8f71-a6eedf1f95b7
                     status: success
+        500:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
   /all:
     get:
       tags:
@@ -211,6 +224,12 @@ paths:
                       id: 0729d37c-ef9f-4ffa-8f71-a6eedf1f95b7
                       lastName: Smith
                       service: Oil Change
+        500:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
   /get:
     get:
       tags:
@@ -280,6 +299,12 @@ paths:
                     - firstName: "{{$randomFirstName}}"
                       id: 0729d37c-ef9f-4ffa-8f71-a6eedf1f95b7
                       lastName: "{{$randomLastName}}"
+        500:
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
   /update:
     put:
       tags:
@@ -361,6 +386,12 @@ paths:
                     lastName: Smith
                     service: Oil Change
                     status: success
+        # 500: # uncomment to get rid of last "Operation should return a 5xx HTTP status code"
+        #   description: Unexpected error
+        #   content:
+        #     application/json:
+        #       schema:
+        #         $ref: '#/components/schemas/Error'
 security:
   - ApiKey: []
   - BasicAuth: []
