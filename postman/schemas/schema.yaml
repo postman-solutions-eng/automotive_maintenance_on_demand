@@ -19,6 +19,7 @@ paths:
           application/form-urlencoded:
             schema:
               type: object
+              $ref: '#/components/schemas/Maintenance'
               properties:
                 firstName:
                   type: string
@@ -41,26 +42,32 @@ paths:
               schema:
                 type: string
                 example: keep-alive
+                $ref: '#/components/schemas/Maintenance'
             Content-Length:
               schema:
                 type: string
                 example: "101"
+                $ref: '#/components/schemas/Maintenance'
             Date:
               schema:
                 type: string
                 example: "Thu, 10 Jan 2019 23:58:59 GMT"
+                $ref: '#/components/schemas/Maintenance'
             ETag:
               schema:
                 type: string
                 example: "W/\"65-KsPJ95rCxmmvvRBY2Sqroxk2vmA\""
+                $ref: '#/components/schemas/Maintenance'
             X-Powered-By:
               schema:
                 type: string
                 example: Express
+                $ref: '#/components/schemas/Maintenance'
           content:
             application/json:
               schema:
                 type: object
+                $ref: '#/components/schemas/Maintenance'
                 properties:
                   firstName:
                     type: string
@@ -105,6 +112,7 @@ paths:
           schema:
             type: string
             example: "{{id}}"
+            $ref: '#/components/schemas/Maintenance'
           description: "The maintenance request's ID"
       responses:
         "200":
@@ -114,22 +122,27 @@ paths:
               schema:
                 type: string
                 example: keep-alive
+                $ref: '#/components/schemas/Maintenance'
             Content-Length:
               schema:
                 type: string
                 example: "64"
+                $ref: '#/components/schemas/Maintenance'
             Date:
               schema:
                 type: string
                 example: "Fri, 11 Jan 2019 00:20:55 GMT"
+                $ref: '#/components/schemas/Maintenance'
             ETag:
               schema:
                 type: string
                 example: "W/\"40-bT/ASzl0KO3wj/eo2xEBaHPLnvk\""
+                $ref: '#/components/schemas/Maintenance'
             X-Powered-By:
               schema:
                 type: string
                 example: Express
+                $ref: '#/components/schemas/Maintenance'
           content:
             application/json:
               schema:
@@ -141,6 +154,7 @@ paths:
                   status:
                     type: string
                     example: success
+                $ref: '#/components/schemas/Maintenance'
               examples:
                 Delete maintenance request:
                   value:
@@ -165,6 +179,7 @@ paths:
           schema:
             type: string
             example: "true"
+            $ref: '#/components/schemas/Maintenance'
       responses:
         "200":
           description: 200 OK
@@ -173,22 +188,27 @@ paths:
               schema:
                 type: string
                 example: keep-alive
+                $ref: '#/components/schemas/Maintenance'
             Content-Length:
               schema:
                 type: string
                 example: "105"
+                $ref: '#/components/schemas/Maintenance'
             Date:
               schema:
                 type: string
                 example: "Fri, 11 Jan 2019 00:00:53 GMT"
+                $ref: '#/components/schemas/Maintenance'
             ETag:
               schema:
                 type: string
                 example: "W/\"69-ti7ujd/Cyb8EeoWoqRXh482Zy5o\""
+                $ref: '#/components/schemas/Maintenance'
             X-Powered-By:
               schema:
                 type: string
                 example: Express
+                $ref: '#/components/schemas/Maintenance'
           content:
             application/json:
               schema:
@@ -216,6 +236,7 @@ paths:
                   - firstName: Ben
                     id: 0729d37c-ef9f-4ffa-8f71-a6eedf1f95b7
                     lastName: Smith
+                $ref: '#/components/schemas/Maintenance'
               examples:
                 200 OK:
                   value:
@@ -243,6 +264,7 @@ paths:
           schema:
             type: string
             example: "{{$randomLastName}}"
+            $ref: '#/components/schemas/Maintenance'
           description: "The maintenance requester's first name (required)"
       responses:
         "200":
@@ -252,22 +274,27 @@ paths:
               schema:
                 type: string
                 example: keep-alive
+                $ref: '#/components/schemas/Maintenance'
             Content-Length:
               schema:
                 type: string
                 example: "105"
+                $ref: '#/components/schemas/Maintenance'
             Date:
               schema:
                 type: string
                 example: "Fri, 11 Jan 2019 00:05:34 GMT"
+                $ref: '#/components/schemas/Maintenance'
             ETag:
               schema:
                 type: string
                 example: "W/\"69-F/ktIhtM5We/sndYYNUK1vmdEnQ\""
+                $ref: '#/components/schemas/Maintenance'
             X-Powered-By:
               schema:
                 type: string
                 example: Express
+                $ref: '#/components/schemas/Maintenance'
           content:
             application/json:
               schema:
@@ -292,6 +319,7 @@ paths:
                   - firstName: "{{$randomFirstName}}"
                     id: 0729d37c-ef9f-4ffa-8f71-a6eedf1f95b7
                     lastName: "{{$randomLastName}}"
+                $ref: '#/components/schemas/Maintenance'
               examples:
                 "200":
                   value:
@@ -318,6 +346,7 @@ paths:
           schema:
             type: string
             example: "{{id}}"
+            $ref: '#/components/schemas/Maintenance'
           description: "The maintenance request's ID (required)"
       requestBody:
         content:
@@ -331,6 +360,7 @@ paths:
                 carType:
                   type: string
                   example: Toyota Camry
+              $ref: '#/components/schemas/Maintenance'
             example:
               firstName: Benjamin
               carType: Toyota Camry
@@ -342,22 +372,27 @@ paths:
               schema:
                 type: string
                 example: keep-alive
+                $ref: '#/components/schemas/Maintenance'
             Content-Length:
               schema:
                 type: string
                 example: "106"
+                $ref: '#/components/schemas/Maintenance'
             Date:
               schema:
                 type: string
                 example: "Fri, 11 Jan 2019 00:18:07 GMT"
+                $ref: '#/components/schemas/Maintenance'
             ETag:
               schema:
                 type: string
                 example: "W/\"6a-SA9mzR+M2pmN7WPGgLm1ZqtRYis\""
+                $ref: '#/components/schemas/Maintenance'
             X-Powered-By:
               schema:
                 type: string
                 example: Express
+                $ref: '#/components/schemas/Maintenance'
           content:
             application/json:
               schema:
@@ -378,6 +413,7 @@ paths:
                   status:
                     type: string
                     example: success
+                $ref: '#/components/schemas/Maintenance'
               examples:
                 Update maintenance request:
                   value:
@@ -392,11 +428,27 @@ paths:
         #     application/json:
         #       schema:
         #         $ref: '#/components/schemas/Error'
-security:
-  - ApiKey: []
-  - BasicAuth: []
+components:
+  schemas:
+    Maintenance:
+      type: object
+      properties:
+        message: 
+          type: string
+  securitySchemes:
+    ApiKey:
+      type: ApiKey
+      name: ApiKey
+    BasicAuth:
+      type: ApiKey
+      name: BasicAuth
+
 tags:
   - name: Create
   - name: Read
   - name: Update
   - name: Delete
+
+security:
+  - ApiKey: []
+  - BasicAuth: []
