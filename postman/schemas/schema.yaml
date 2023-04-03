@@ -422,12 +422,12 @@ paths:
                     lastName: Smith
                     service: Oil Change
                     status: success
-        # 500: # uncomment to get rid of last "Operation should return a 5xx HTTP status code"
-        #   description: Unexpected error
-        #   content:
-        #     application/json:
-        #       schema:
-        #         $ref: '#/components/schemas/Error'
+        500: # COMMENT OUT TO SEE A WARNING TO ADD A "5xx HTTP status code"
+          description: Unexpected error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Error'
 components:
   schemas:
     Maintenance:
@@ -451,6 +451,7 @@ tags:
   - name: Update
   - name: Delete
 
+# COMMENT OUT THE FOLLOWING THREE LINES TO VIEW ERROR
 security:
   - ApiKey: []
   - BasicAuth: []
