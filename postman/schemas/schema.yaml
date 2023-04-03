@@ -437,10 +437,12 @@ components:
           type: string
   securitySchemes:
     ApiKey:
-      type: ApiKey
+      in: header
+      type: apiKey
       name: ApiKey
     BasicAuth:
-      type: ApiKey
+      in: header
+      type: apiKey
       name: BasicAuth
 
 tags:
